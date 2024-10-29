@@ -41,10 +41,6 @@ public class CarModelDTO {
         return Objects.hash(id);
     }
 
-    public boolean equalsByFields(CarModelDTO other) {
-        return this.brand.equals(other.brand) &&
-                this.modelName.equals(other.modelName);
-    }
 
     public int getId() {
         return id;

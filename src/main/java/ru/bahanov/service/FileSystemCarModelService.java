@@ -6,7 +6,9 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public class FileSystemCarModelService {
@@ -29,7 +31,15 @@ public class FileSystemCarModelService {
         return null;
     }
 
-
+    public List<CarModelDTO> findCarByBrand(String brand) {
+        List<CarModelDTO> carsByBrand = new ArrayList<>();
+        for (CarModelDTO car : carModels) {
+            if (car.getBrand().equals(brand)) {
+                carsByBrand.add(car);
+            }
+        }
+        return carsByBrand;
+    }
 
     public void load(String fileName) throws IOException {
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
