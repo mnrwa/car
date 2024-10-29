@@ -17,7 +17,6 @@ public class CarModelDTO {
         this.countryCode = countryCode;
     }
 
-    // Реализация toString
     @Override
     public String toString() {
         return "CarModelDTO{" +
