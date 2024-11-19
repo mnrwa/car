@@ -53,4 +53,12 @@ public class CarModelDTO {
     public String getModelName() {
         return modelName;
     }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public String getCountryCode() {
+        return countryCode;
+    }
 }

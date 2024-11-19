@@ -2,38 +2,27 @@ package ru.bahanov.service;
 
 import ru.bahanov.dto.CarModelDTO;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import java.io.*;
+import java.util.*;
 
 public class FileSystemCarModelService {
-    private final List<CarModelDTO> carModels = new ArrayList<>();
+    private final Map<Integer, CarModelDTO> carModelsById = new HashMap<>();
 
     public int getAllCar() {
-        return carModels.size();
+        return carModelsById.size();
     }
 
     public List<CarModelDTO> getCarModels() {
-        return carModels;
+        return new ArrayList<>(carModelsById.values());
     }
 
     public CarModelDTO findCarById(int id) {
-        for (CarModelDTO car : carModels) {
-            if (car.getId() == id) {
-                return car;
-            }
-        }
-        return null;
+        return carModelsById.get(id);
     }
 
     public List<CarModelDTO> findCarByBrand(String brand) {
         List<CarModelDTO> carsByBrand = new ArrayList<>();
-        for (CarModelDTO car : carModels) {
+        for (CarModelDTO car : carModelsById.values()) {
             if (car.getBrand().equals(brand)) {
                 carsByBrand.add(car);
             }
@@ -55,7 +44,7 @@ public class FileSystemCarModelService {
                             parts[2],
                             parts[3]
                     );
-                    carModels.add(carModel);
+                    carModelsById.put(carModel.getId(), carModel);
                 }
             }
         } catch (IOException e) {
