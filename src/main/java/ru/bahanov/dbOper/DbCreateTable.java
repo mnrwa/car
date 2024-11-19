@@ -16,10 +16,10 @@ public class DbCreateTable {
 
         String createTableSQL = "CREATE TABLE IF NOT EXISTS cars ("
                 + "id SERIAL PRIMARY KEY, "
-                + "brand VARCHAR(30), "
-                + "model_name VARCHAR(30), "
-                + "country VARCHAR(50), "
-                + "countryCode VARCHAR(10)"
+                + "brand VARCHAR(255), "
+                + "model_name VARCHAR(255), "
+                + "country VARCHAR(25), "
+                + "countryCode VARCHAR(255)"
                 + ");";
 
         try (Connection connection = DriverManager.getConnection(url, user, password);
