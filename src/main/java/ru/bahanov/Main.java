@@ -2,11 +2,16 @@ package ru.bahanov;
 
 import ru.bahanov.dbOper.DBConfig;
 import ru.bahanov.dbOper.DbPrintCar;
+import ru.bahanov.dealer.DealerCenter;
+import ru.bahanov.dealer.DealerService;
+import ru.bahanov.dto.CarDTO;
 import ru.bahanov.dto.CarModelDTO;
 import ru.bahanov.service.FileSystemCarModelService;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Main {
     public static void main(String[] args) {
@@ -27,7 +32,7 @@ public class Main {
             System.out.println("Загружено моделей автомобилей: " + fileSystemCarModelService.getAllCar());
 
             CarModelDTO carById = fileSystemCarModelService.findCarById(3000);
-            System.out.println("Вывод автомобиля по его id: 3000: " + (carById != null ? carById : "Не найдено"));
+            System.out.println("Вывод автомобиля по его id 3000: " + (carById != null ? carById : "Не найдено"));
 
             List<CarModelDTO> volvoCars = fileSystemCarModelService.findCarByBrand("Volvo");
             System.out.println("Вывод автомобилей по марке 'Volvo': " + volvoCars.size());
@@ -40,4 +45,5 @@ public class Main {
             System.err.println("Ошибка загрузки файла: " + e.getMessage());
         }
     }
+
 }

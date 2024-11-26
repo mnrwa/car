@@ -64,7 +64,6 @@ public class InsertCar {
 
     public void printCarsFromDatabase() {
         String query = "SELECT * FROM cars";
-
         try (Connection connection = DriverManager.getConnection(dbConfig.getUrl(), dbConfig.getUser(), dbConfig.getPassword());
              Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery(query)) {

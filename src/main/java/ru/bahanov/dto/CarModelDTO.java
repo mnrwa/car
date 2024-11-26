@@ -8,6 +8,8 @@ public class CarModelDTO {
     private final String modelName;
     private final String country;
     private final String countryCode;
+    private  String color;
+    private  String complectation;
 
     public CarModelDTO(int id, String brand, String modelName, String country, String countryCode) {
         this.id = id;
@@ -60,5 +62,13 @@ public class CarModelDTO {
 
     public String getCountryCode() {
         return countryCode;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public String getComplectation() {
+        return complectation;
     }
 }
